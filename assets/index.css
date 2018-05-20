@@ -1,0 +1,207 @@
+/* PURE CSS overrides/extends */
+.pure-menu-horizontal {
+    text-align: center;
+}
+
+.pure-menu-horizontal .pure-menu-children {
+    width: 100%;
+}
+
+.pure-menu-horizontal.pure-menu-scrollable {
+    white-space: nowrap;
+    overflow-x: auto;
+    height: 42px;
+    border-bottom: 1px solid #000;
+    -webkit-overflow-scrolling: touch;
+    padding: 0;
+    /*
+    padding-top: 0.5em;
+    padding-right: 0px;
+    padding-bottom: 0.5em;
+    padding-left: 0px;
+    */
+}
+
+.pure-menu-link {
+    padding: .7em .8em;
+    font-weight: bold;
+}
+
+.pure-menu-horizontal.pure-menu-scrollable li a {
+    color: #000
+}
+
+/* custom CSS */
+body {
+    background: #333;
+}
+
+header {
+    width: 100%;
+    margin-top: -56px;
+    height: 58px;
+    background: #000;
+}
+
+#preloading {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 30px;
+    height: 30px;
+    margin-top: -15px;
+    margin-left: -15px;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 1104;
+    display: none;
+    border: 2px solid #E7692C;
+    border-radius: 3px;
+    text-align: center;
+    line-height: 24px;
+    box-shadow: 0 1px 2px #ccc;
+    background: lightgrey;
+}
+#preloading span {
+    font-weight: bold;
+}
+
+#content, #location, #location-name, #preloading {
+    display: none;
+}
+#location-name {
+    background: #E7692C;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 4px;
+    padding-top: 4px;
+    font-family: Arial,sans-serif;
+    font-size: .8rem;
+    font-weight: bold;
+    margin-top: 65px;
+    border: 1px solid #999
+}
+
+#content {
+    margin-top: 38px;
+}
+
+#going {
+    font-family: Lobster, sans-serif;
+    color: #efefef;
+    font-size: 36px;
+    width: 130px;
+    height:38px;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -70px;
+    margin-top: -20px;
+    zoom: 1
+}
+
+
+ul, ul#tabs {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+ul#tabs li button.active {
+    font-weight: bold;
+}
+ul#tab {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ul#goers-list.hide, ul#events-list.hide {
+    display: none;
+}
+ul#goers-list.active, ul#events-list.active {
+    display: block;
+    width: 50%;
+    margin-left: 25%
+
+ }
+ul#goers-list.active li, ul#events-list.active li {
+    text-align: left;
+    font-size: 0.8rem;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    margin-bottom: 3px;
+}
+
+.inverted {
+    background: #333;
+    color: #efefef
+}
+
+.dot1, .dot2, .dot3{
+    /* anything property in this class is editable */
+    font-weight: bold;
+}
+
+.dot1{
+    animation:animateDot1 2s infinite;
+    -webkit-animation:animateDot1 2s infinite;
+}
+
+.dot2{
+    animation:animateDot2 2s infinite;
+    -webkit-animation:animateDot2 2s infinite;
+}
+
+.dot3{
+    animation:animateDot3 2s infinite;
+    -webkit-animation:animateDot3 2s infinite;
+}
+
+@keyframes animateDot1 {
+    0%,24.9% {opacity: 0;}
+    25% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes animateDot1 {
+    0%,24.9% {opacity: 0;}
+    25% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@keyframes animateDot2 {
+    0%,49.9% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes animateDot2 {
+    0%,49.9% {opacity: 0;}
+    50% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@keyframes animateDot3 {
+    0%,74.9% {opacity: 0;}
+    75% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+@-webkit-keyframes animateDot3 {
+    0%,74.9% {opacity: 0;}
+    75% {opacity: 1;}
+    100% {opacity: 1;}
+}
+
+/* iOS media queries */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+    ul#goers-list.active, ul#events-list.active {
+        display: block;
+        width: 96%;
+        margin-left: 2%;
+    }
+}

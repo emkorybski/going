@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Going anywhere?</title>
+
+    <link href='https://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.6.0/pure-min.css">
+    <link rel="stylesheet" href="assets/index.css" media="screen,projection">
+    <script src="https://code.jquery.com/jquery-1.9.1.js"></script>
+
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+  <!-- ## Setup -->
+  <!--
+    Import the `amp-sidebar` component.
+  -->
+  <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+  <script async custom-element="amp-fit-text" src="https://cdn.ampproject.org/v0/amp-fit-text-0.1.js"></script>
+  <link rel="canonical" href="https://ampbyexample.com/components/amp-sidebar/">
+  <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+  <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+  <style amp-custom>
+    amp-sidebar {
+      width: 250px;
+      padding-right: 10px;
+    }
+    .amp-sidebar-image {
+      line-height: 100px;
+      vertical-align:middle;
+    }
+    .amp-close-image {
+       top: 15px;
+       left: 225px;
+       cursor: pointer;
+    }
+    li {
+      margin-bottom: 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      list-style: none;
+    }
+
+    .previewOnly {
+      font-weight: bold;
+    }
+
+    #sidebar-right nav.amp-sidebar-toolbar-target-shown {
+        display: none;
+    }
+
+    #menuToggle {
+        position: absolute;
+        top: 16px;
+        left: 10px;
+        background: transparent;
+        border: none
+    }
+
+    #menuToggle span
+        {
+          display: block;
+          width: 33px;
+          height: 4px;
+          margin-bottom: 5px;
+          position: relative;
+          
+          background: white;
+          border-radius: 3px;
+          
+          z-index: 1;
+          
+          transform-origin: 4px 0px;
+          
+          transition: transform 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                      background 0.5s cubic-bezier(0.77,0.2,0.05,1.0),
+                      opacity 0.55s ease;
+        }
+    </style>
+    <style>
+
+        /* @CSS anim test start for logo */
+
+        #going {
+            animation: logoanim 1s linear, goup .5s linear both;
+            animation-delay: 0s, .5s;   
+        }    
+        @keyframes logoanim {
+            from {color: rgba(255,135,0,.3);}
+            to {color: white;} 
+        }
+
+        @keyframes goup {
+            from {
+                top: 50%;
+                /*zoom: 1;*/
+                font-size: 36px;
+            }
+            to{
+                top: 30px;
+                /*zoom: 0.7;*/
+                font-size: 24px;
+            }
+        }
+        /* @CSS anim test end for logo */
+
+        .custom-menu-wrapper#location {
+            background-color: rgba(255,135,0,.3);
+            margin-bottom: 0.75em;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .custom-menu {
+            display: inline-block;
+            width: auto;
+            vertical-align: middle;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .custom-menu .pure-menu-link,
+        .custom-menu .pure-menu-heading {
+            color: white;
+        }
+
+        @media (max-width: 62em) {
+            .custom-menu {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        
+        <div>
+          <amp-sidebar id="sidebar-left" layout="nodisplay" side="left">
+            <amp-img class="amp-close-image" src="/img/ic_close_black_18dp_2x.png" width="20" height="20" alt="close sidebar" on="tap:sidebar-left.close" role="button" tabindex="0"></amp-img>
+            <nav toolbar="(min-width: 784px)" toolbar-target="target-element-left">
+              <ul>
+                <li><a href="/">Home</a></li>
+                <li> Nav item 1</li>
+              </ul>
+            </nav>
+            <ul>
+              <li>
+                <amp-fit-text width="220" height="20" layout="responsive" max-font-size="24">
+                  Nav item 2 - &lt;amp-fit-text&gt;
+                </amp-fit-text>
+              </li>
+              <li>
+                <amp-fit-text width="220" height="20" layout="responsive" max-font-size="24">
+                  Nav item 3 - &lt;amp-fit-text&gt; longer text
+                </amp-fit-text>
+              </li>
+              <li> Nav item 4 - Image<amp-img class="amp-sidebar-image" src="/img/favicon.png" width="20" height="20" alt="an image"></amp-img></li>
+              <li> Nav item 5</li>
+              <li> Nav item 6</li>
+            </ul>
+          </amp-sidebar>
+
+
+          <!--<button on="tap:sidebar-left.toggle" class="ampstart-btn caps m2">Toggle sidebar</button>-->
+
+          <button id="menuToggle" class="hamburger" on='tap:sidebar-left.toggle'>
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+           
+          <div id="target-element-left">
+          </div>
+        </div>
+
+    </header>
+
+    <!-- location dropdown -->
+    <!--
+    <div id="location" class="pure-menu pure-menu-horizontal">
+        <ul class="pure-menu-list">
+            <li id="location-choose" class="pure-menu-item pure-menu-has-children">
+                <a id="menuLink1" class="pure-menu-link">Choose location</a>
+                <ul id="location-list" class="pure-menu-children inverted">
+                    <li class="pure-menu-item"><a data-last-value="Dublin" class="pure-menu-link">Dublin</a></li>
+                    <li class="pure-menu-item"><a data-last-value="London" class="pure-menu-link">London</a></li>
+                    <li class="pure-menu-item"><a data-last-value="Manchester" class="pure-menu-link">Manchester</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    -->
+    <div id="location" class="custom-menu-wrapper">
+        <div class="pure-menu pure-menu-horizontal pure-menu-scrollable custom-menu custom-menu-bottom">
+            <ul id="location-list" class="pure-menu-list">
+                <li class="pure-menu-item"><a data-last-value="London" class="pure-menu-link">London</a></li>
+                <li class="pure-menu-item"><a data-last-value="Dublin" class="pure-menu-link">Dublin</a></li>
+                <li class="pure-menu-item"><a data-last-value="Manchester" class="pure-menu-link">Manchester</a></li>
+                <li class="pure-menu-item"><a data-last-value="Birmingham" class="pure-menu-link">Birmingham</a></li>
+                <li class="pure-menu-item"><a data-last-value="Glasgow" class="pure-menu-link">Glasgow</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- CSS3 preloader -->
+    <div id="preloading">
+        <span class="dot1">.</span>
+        <span class="dot2">.</span>
+        <span class="dot3">.</span>
+    </div>
+
+    <div id="content">
+        <div class="pure-menu pure-menu-horizontal">
+            <ul id="tabs" class="pure-menu-list">
+                <li class="pure-menu-item">
+                    <button id="events" class="pure-button active">Events</button>
+                </li>
+                <li class="pure-menu-item">
+                    <button id="goers" class="pure-button">Goers</button>
+                </li>
+            </ul>
+        </div>
+        <ul id="events-list" class="active"></ul>
+        <ul id="goers-list" class="hide">Please select event first.</ul>
+
+    </div>
+    <!-- animated logo -->
+    <div id="going">
+        Going ?
+        <div id="location-name"></div>
+    </div>
+
+</body>
+<!--<script src="assets/index.js"></script>-->
+<script src="assets/logo_css_anim.js"></script>
+
+</html>

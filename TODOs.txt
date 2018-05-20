@@ -1,2 +1,7 @@
 - add loading progress info/bar
 - add Google's reCaptcha when 'goers' sign in - https://www.google.com/recaptcha/admin#list
+===
+
+AMP revamp z Arkiem
+---
+Przerobic animacje logo z CSS animation na AMP animation!!!
